@@ -18,9 +18,12 @@ class Login extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.only(top: 50),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                image: const DecorationImage(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(150),
+                  topRight: Radius.circular(150),
+                ),
+                image: DecorationImage(
                   image: AssetImage(
                     'assets/images/woman.jpg',
                   ),
@@ -30,7 +33,9 @@ class Login extends StatelessWidget {
               height: h * 0.5,
               width: w * 0.8,
             ),
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             SizedBox(
               height: 100,
               width: w * 0.9,
@@ -43,7 +48,9 @@ class Login extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             SizedBox(
               height: 60,
               width: w * 0.9,
@@ -66,37 +73,43 @@ class Login extends StatelessWidget {
 
   Row _buttonRow() {
     return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButton(
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(
-                    Colors.white, 
-                  ),
-                ),
-                onPressed: () {},
-                child: const Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              TextButton(
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(
-                    Colors.black,
-                  ),
-                ),
-                onPressed: () {},
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          );
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        TextButton(
+          style: TextButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25),
+            ),
+            padding: const EdgeInsets.all(18),
+            backgroundColor: Colors.white,
+          ),
+          onPressed: () {},
+          child: const Text(
+            'Sign Up',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.black,
+            ),
+          ),
+        ),
+        TextButton(
+          style: TextButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25),
+            ),
+            padding: const EdgeInsets.all(18),
+            backgroundColor: Colors.black,
+          ),
+          onPressed: () {},
+          child: const Text(
+            'Sign In',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
