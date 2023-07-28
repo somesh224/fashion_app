@@ -1,3 +1,6 @@
+import 'package:fashion_app/Routes/routes.dart';
+import 'package:fashion_app/Screens/otp.dart';
+import 'package:fashion_app/Screens/phone.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'Screens/login_screen.dart';
@@ -17,9 +20,14 @@ class MyApp extends StatelessWidget {
         statusBarColor: Colors.transparent
       )
     );
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      initialRoute: "/phone",
+      routes: {
+        MyRoutes.homeRoute :(context) => const Login(),
+        MyRoutes.phone :(context) => const PhoneNumber(),
+        MyRoutes.otp :(context) => const Otp(),
+      },
     );
   }
 }
