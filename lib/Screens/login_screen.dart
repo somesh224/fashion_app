@@ -1,4 +1,4 @@
-// import 'package:fashion_app/Routes/routes.dart';
+import 'package:fashion_app/Routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -66,66 +66,62 @@ class Login extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              _buttonRow(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, MyRoutes.phone);
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            width: 1.5, color: Colors.grey.withOpacity(0.5)),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, MyRoutes.phone);
+                    },
+                    child: Container(
+                      height: 70,
+                      width: 160,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Sign In',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
       ),
-    );
-  }
-
-  Row _buttonRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        GestureDetector(
-          onTap: () {
-            // Navigator.pushNamed(context, MyRoutes.phone);
-          },
-          child: Container(
-            height: 70,
-            width: 160,
-            decoration: BoxDecoration(
-              border:
-                  Border.all(width: 1.5, color: Colors.grey.withOpacity(0.5)),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const Center(
-              child: Text(
-                'Sign In',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-          ),
-        ),
-        GestureDetector(
-          onTap: () {
-            // Navigator.pushNamed(context, MyRoutes.phone);
-          },
-          child: Container(
-            height: 70,
-            width: 160,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: const Center(
-              child: Text(
-                'Sign In',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

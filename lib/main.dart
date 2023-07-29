@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/phone",
       routes: {
         MyRoutes.homeRoute :(context) => const Login(),
         MyRoutes.phone :(context) => const PhoneNumber(),

@@ -1,3 +1,4 @@
+import 'package:fashion_app/Routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
@@ -82,7 +83,13 @@ class _OtpState extends State<Otp> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      MyRoutes.phone,
+                      (route) => false,
+                    );
+                  },
                   child: Text(
                     'Edit Phone Number ?',
                     style: TextStyle(color: Colors.black),
