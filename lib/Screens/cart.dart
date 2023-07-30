@@ -128,14 +128,18 @@ class Mycart extends StatelessWidget {
                                       GestureDetector(
                                         onTap: () {},
                                         child: Container(
-                                          height: 20,
-                                          width: 20,
+                                          height: 22,
+                                          width: 22,
                                           decoration: BoxDecoration(
+                                            
                                             color: Colors.red.withOpacity(0.2),
                                           ),
-                                          child: Icon(
-                                            Icons.delete_forever_outlined,
-                                            color: Colors.red,
+                                          child: Center(
+                                            child: Icon(
+                                              Icons.delete_forever_outlined,
+                                              color: Colors.red,
+                                              size: 22,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -200,14 +204,14 @@ class Mycart extends StatelessWidget {
                                   ),
                                 ),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.only(left: 8),
                                       child: Container(
                                         child: Row(
                                           children: [
-                                            Text('Quantity :'),
                                             Container(
                                               decoration: BoxDecoration(
                                                 shape: BoxShape.circle,
@@ -233,23 +237,25 @@ class Mycart extends StatelessWidget {
                                                 ),
                                               ),
                                             ),
-                                            Container(
-                                              child: Row(
-                                                children: [
-                                                  Icon(Icons.currency_rupee, color: Colors.blue, size: 18,),
-                                                  Text(
-                                                    '50',
-                                                    style: TextStyle(
-                                                        color: Colors.blue,
-                                                        fontSize: 18),
-                                                  ),
-                                                  
-                                                ],
-                                              ),
-
-                                            )
                                           ],
                                         ),
+                                      ),
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.currency_rupee,
+                                            color: Colors.blue,
+                                            size: 18,
+                                          ),
+                                          Text(
+                                            '50',
+                                            style: TextStyle(
+                                                color: Colors.blue,
+                                                fontSize: 18),
+                                          ),
+                                        ],
                                       ),
                                     )
                                   ],
@@ -279,7 +285,10 @@ class Mycart extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Icon(Icons.currency_rupee, color: Colors.blue,),
+                  Icon(
+                    Icons.currency_rupee,
+                    color: Colors.blue,
+                  ),
                   Text(
                     '2000',
                     style: TextStyle(
@@ -288,7 +297,6 @@ class Mycart extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  
                 ],
               ),
             ),
