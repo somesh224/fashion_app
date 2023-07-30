@@ -3,4 +3,5 @@ class MyRoutes {
   static String phone = '/phone';
   static String otp = '/otp';
   static String cart = '/cart';
+  static String setting = '/setting';
 }

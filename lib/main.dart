@@ -2,6 +2,7 @@ import 'package:fashion_app/Routes/routes.dart';
 import 'package:fashion_app/Screens/cart.dart';
 import 'package:fashion_app/Screens/otp.dart';
 import 'package:fashion_app/Screens/phone.dart';
+import 'package:fashion_app/Screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'Screens/login_screen.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.phone :(context) => PhoneNumber(),
         MyRoutes.otp :(context) => Otp(),
         MyRoutes.cart :(context) => Mycart(),
+        MyRoutes.setting :(context) => SettingsScreen(),
       },
     );
   }

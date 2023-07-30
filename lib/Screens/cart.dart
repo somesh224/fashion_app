@@ -24,6 +24,7 @@ class Mycart extends StatelessWidget {
     // Add more items with images as needed
   ];
   static String price = 'XX Rs.';
+  static int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +83,7 @@ class Mycart extends StatelessWidget {
                 itemCount: cartItems.length,
                 itemBuilder: (context, index) {
                   return Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
@@ -95,11 +97,10 @@ class Mycart extends StatelessWidget {
                               // border: Border.all(width: 0.8, color: Colors.grey),
                               borderRadius: BorderRadius.circular(12),
                             ),
-                            width: 100,
-                            height: 140,
+                            width: 130,
+                            height: 130,
                           ),
                           Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Row(
                                 children: [
@@ -113,15 +114,42 @@ class Mycart extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
+                                  Icon(Icons.delete),
                                 ],
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(10.0),
                                 child: Row(
                                   children: [
-                                    Text('Price: \$XX.XX, Quantity: X'),
+                                    Text(
+                                      'Price: \$XX.XX',
+                                      style: TextStyle(fontSize: 18),
+                                    ),
                                   ],
                                 ),
+                              ),
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text('Quantity : '),
+                                  IconButton(
+                                    icon: Icon(Icons.remove_circle),
+                                    onPressed: () {
+                                      if (quantity > 0) {
+                                        quantity--;
+                                      }
+                                    },
+                                  ),
+                                  Text('$quantity'),
+                                  IconButton(
+                                    icon: Icon(Icons.add_circle),
+                                    onPressed: () {
+                                      quantity++;
+                                    },
+                                  )
+                                ],
                               ),
                             ],
                           ),
@@ -147,7 +175,10 @@ class Mycart extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 '$price',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,),
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Padding(
