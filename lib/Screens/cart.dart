@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 class Mycart extends StatelessWidget {
@@ -23,11 +25,11 @@ class Mycart extends StatelessWidget {
     },
     // Add more items with images as needed
   ];
-  static String price = 'XX Rs.';
-  static int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -82,81 +84,183 @@ class Mycart extends StatelessWidget {
               child: ListView.builder(
                 itemCount: cartItems.length,
                 itemBuilder: (context, index) {
+                  int quantity = 1;
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
                           Container(
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(cartItems[index]['image']),
-                                fit: BoxFit.fitHeight,
+                            width: w * 0.22,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(cartItems[index]['image']),
+                                  fit: BoxFit.fitHeight,
+                                ),
+                                color: Colors.yellow.withOpacity(0.4),
+                                // border: Border.all(width: 0.8, color: Colors.grey),
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              color: Colors.yellow.withOpacity(0.5),
-                              // border: Border.all(width: 0.8, color: Colors.grey),
-                              borderRadius: BorderRadius.circular(12),
+                              width: 100,
+                              height: 100,
                             ),
-                            width: 130,
-                            height: 130,
                           ),
-                          Column(
-                            children: [
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: 10,
+                          Container(
+                            width: w * 0.65,
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 10.0,
                                   ),
-                                  Text(
-                                    cartItems[index]['name'],
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        cartItems[index]['name'],
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: Container(
+                                          height: 20,
+                                          width: 20,
+                                          decoration: BoxDecoration(
+                                            color: Colors.red.withOpacity(0.2),
+                                          ),
+                                          child: Icon(
+                                            Icons.delete_forever_outlined,
+                                            color: Colors.red,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  Icon(Icons.delete),
-                                ],
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Row(
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'brand',
+                                        style: TextStyle(color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(5.0),
+                                          child: Text(
+                                            'Size: M',
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(5.0),
+                                          child: Text(
+                                            'Color:',
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(5.0),
+                                          child: Text(
+                                            'QYT: 01',
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      'Price: \$XX.XX',
-                                      style: TextStyle(fontSize: 18),
-                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8),
+                                      child: Container(
+                                        child: Row(
+                                          children: [
+                                            Text('Quantity :'),
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.grey
+                                                    .withOpacity(0.2),
+                                              ),
+                                              child: IconButton(
+                                                icon: Icon(Icons.remove),
+                                                onPressed: () {},
+                                              ),
+                                            ),
+                                            Text('$quantity'),
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.grey
+                                                    .withOpacity(0.2),
+                                              ),
+                                              child: Center(
+                                                child: IconButton(
+                                                  icon: Icon(Icons.add),
+                                                  onPressed: () {},
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Row(
+                                                children: [
+                                                  Icon(Icons.currency_rupee, color: Colors.blue, size: 18,),
+                                                  Text(
+                                                    '50',
+                                                    style: TextStyle(
+                                                        color: Colors.blue,
+                                                        fontSize: 18),
+                                                  ),
+                                                  
+                                                ],
+                                              ),
+
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 ),
-                              ),
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text('Quantity : '),
-                                  IconButton(
-                                    icon: Icon(Icons.remove_circle),
-                                    onPressed: () {
-                                      if (quantity > 0) {
-                                        quantity--;
-                                      }
-                                    },
-                                  ),
-                                  Text('$quantity'),
-                                  IconButton(
-                                    icon: Icon(Icons.add_circle),
-                                    onPressed: () {
-                                      quantity++;
-                                    },
-                                  )
-                                ],
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                     ],
                   );
@@ -173,12 +277,17 @@ class Mycart extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                '$price',
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Row(
+                children: [
+                  Text(
+                    '2000',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Icon(Icons.currency_rupee)
+                ],
               ),
             ),
             Padding(
