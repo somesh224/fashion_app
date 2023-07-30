@@ -1,4 +1,4 @@
-import 'package:fashion_app/Routes/routes.dart';
+import 'package:fashion_app/Screens/phone.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,14 +20,15 @@ class Login extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(top: 50),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
+                  color: Colors.yellow.withOpacity(0.35),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(150),
                     topRight: Radius.circular(150),
                   ),
                   image: DecorationImage(
                     image: AssetImage(
-                      'assets/images/woman.jpg',
+                      'assets/images/yellow_dress.png',
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -71,7 +72,23 @@ class Login extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, MyRoutes.phone);
+                      Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            PhoneNumber(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(1.0, 0.0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: child,
+                          );
+                        },
+                      ),
+                    );
                     },
                     child: Container(
                       height: 70,
@@ -95,7 +112,23 @@ class Login extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, MyRoutes.phone);
+                      Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            PhoneNumber(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          return SlideTransition(
+                            position: Tween<Offset>(
+                              begin: const Offset(1.0, 0.0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: child,
+                          );
+                        },
+                      ),
+                    );
                     },
                     child: Container(
                       height: 70,

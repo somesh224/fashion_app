@@ -23,7 +23,7 @@ class _OtpState extends State<Otp> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),
@@ -55,8 +55,8 @@ class _OtpState extends State<Otp> {
             const SizedBox(
               height: 20,
             ),
-            Pinput(
-              length: 6,
+            const Pinput(
+              length: 4,
               showCursor: true,
             ),
             const SizedBox(
@@ -68,7 +68,7 @@ class _OtpState extends State<Otp> {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black.withOpacity(0.8),
+                  backgroundColor: Colors.black.withOpacity(0.75),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
@@ -90,7 +90,7 @@ class _OtpState extends State<Otp> {
                       (route) => false,
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'Edit Phone Number ?',
                     style: TextStyle(color: Colors.black),
                   ),

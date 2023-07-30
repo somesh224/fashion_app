@@ -1,4 +1,5 @@
 import 'package:fashion_app/Routes/routes.dart';
+import 'package:fashion_app/Screens/cart.dart';
 import 'package:fashion_app/Screens/otp.dart';
 import 'package:fashion_app/Screens/phone.dart';
 import 'package:flutter/material.dart';
@@ -22,10 +23,12 @@ class MyApp extends StatelessWidget {
     );
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: MyRoutes.cart,
       routes: {
-        MyRoutes.homeRoute :(context) => const Login(),
-        MyRoutes.phone :(context) => const PhoneNumber(),
-        MyRoutes.otp :(context) => const Otp(),
+        MyRoutes.homeRoute :(context) => Login(),
+        MyRoutes.phone :(context) => PhoneNumber(),
+        MyRoutes.otp :(context) => Otp(),
+        MyRoutes.cart :(context) => Mycart(),
       },
     );
   }
