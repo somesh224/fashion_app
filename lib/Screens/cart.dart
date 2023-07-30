@@ -75,6 +75,9 @@ class Mycart extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+                Divider(
+                  color: Colors.grey,
+                )
               ],
             ),
             SizedBox(
@@ -131,7 +134,6 @@ class Mycart extends StatelessWidget {
                                           height: 22,
                                           width: 22,
                                           decoration: BoxDecoration(
-                                            
                                             color: Colors.red.withOpacity(0.2),
                                           ),
                                           child: Center(
@@ -213,18 +215,25 @@ class Mycart extends StatelessWidget {
                                         child: Row(
                                           children: [
                                             Container(
+                                              height: 24,
+                                              width: 24,
                                               decoration: BoxDecoration(
                                                 shape: BoxShape.circle,
                                                 color: Colors.grey
                                                     .withOpacity(0.2),
                                               ),
-                                              child: IconButton(
-                                                icon: Icon(Icons.remove),
-                                                onPressed: () {},
+                                              child: Center(
+                                                child: IconButton(
+                                                  icon: Icon(Icons.remove),
+                                                  iconSize: 10,
+                                                  onPressed: () {},
+                                                ),
                                               ),
                                             ),
-                                            Text('$quantity'),
+                                            Text('  $quantity  '),
                                             Container(
+                                              height: 24,
+                                              width: 24,
                                               decoration: BoxDecoration(
                                                 shape: BoxShape.circle,
                                                 color: Colors.grey
@@ -233,6 +242,7 @@ class Mycart extends StatelessWidget {
                                               child: Center(
                                                 child: IconButton(
                                                   icon: Icon(Icons.add),
+                                                  iconSize: 10,
                                                   onPressed: () {},
                                                 ),
                                               ),
@@ -250,7 +260,7 @@ class Mycart extends StatelessWidget {
                                             size: 18,
                                           ),
                                           Text(
-                                            '50',
+                                            '500',
                                             style: TextStyle(
                                                 color: Colors.blue,
                                                 fontSize: 18),
@@ -268,6 +278,7 @@ class Mycart extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
+                      Divider(color: Colors.grey),
                     ],
                   );
                 },
