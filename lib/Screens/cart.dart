@@ -279,14 +279,16 @@ class Mycart extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
+                  Icon(Icons.currency_rupee, color: Colors.blue,),
                   Text(
                     '2000',
                     style: TextStyle(
+                      color: Colors.blue,
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Icon(Icons.currency_rupee)
+                  
                 ],
               ),
             ),
